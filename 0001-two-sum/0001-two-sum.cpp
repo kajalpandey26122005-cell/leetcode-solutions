@@ -1,16 +1,14 @@
-#include<unordered_map>
-#include<vector>
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> numMap;
-        for(int i=0; i<nums.size(); ++i){
-            int comp = target - nums[i];
-            if(numMap.find(comp) != numMap.end()){
-                return {numMap[comp], i};
+        map<int,int> mpp;
+        for(int i=0; i<nums.size(); i++){
+            int more = target - nums[i];
+            if(mpp.find(more) != mpp.end()){
+                return {mpp[more], i};
             }
-            numMap[nums[i]] = i;
+            mpp[nums[i]] = i;
         }
-        return {};
+        return {} ;
     }
 };
